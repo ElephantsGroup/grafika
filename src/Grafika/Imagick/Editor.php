@@ -378,7 +378,7 @@ final class Editor implements EditorInterface
         $opacity = ($opacity > 1) ? 1 : $opacity;
         $opacity = ($opacity < 0) ? 0 : $opacity;
 
-        $image->getCore()->setImageOpacity($opacity);
+        $image->getCore()->evaluateImage(\Imagick::EVALUATE_MULTIPLY, $opacity, \Imagick::CHANNEL_ALPHA);
 
         return $this;
     }
